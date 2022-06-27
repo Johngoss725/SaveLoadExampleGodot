@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Pics/ASSASIN.jpeg" type="Texture" id=2]
+[ext_resource path="res://Pics/ORC.jpeg" type="Texture" id=3]
+[ext_resource path="res://Pics/WARRIOR.jpeg" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainScreen" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.168627, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadGame" type="Button" parent="MainScreen"]
+margin_left = 158.228
+margin_top = 474.684
+margin_right = 249.228
+margin_bottom = 494.684
+text = "LOAD GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="MainScreen"]
+margin_left = 798.172
+margin_top = 471.167
+margin_right = 878.172
+margin_bottom = 491.167
+text = "NEWGAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.211765, 0.388235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadingScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewScreen" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.211765, 0.388235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Orc" type="TextureButton" parent="NewScreen"]
+margin_left = 52.6164
+margin_top = 172.199
+margin_right = 277.616
+margin_bottom = 397.199
+texture_normal = ExtResource( 3 )
+
+[node name="Warrior" type="TextureButton" parent="NewScreen"]
+margin_left = 408.973
+margin_top = 138.716
+margin_right = 602.973
+margin_bottom = 397.716
+texture_normal = ExtResource( 4 )
+
+[node name="Assasin" type="TextureButton" parent="NewScreen"]
+margin_left = 684.014
+margin_top = 191.333
+margin_right = 984.014
+margin_bottom = 359.333
+texture_normal = ExtResource( 2 )
+
+[node name="TextEdit" type="TextEdit" parent="NewScreen"]
+margin_left = 478.331
+margin_top = 480.723
+margin_right = 893.331
+margin_bottom = 546.723
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NewScreen"]
+margin_left = 146.101
+margin_top = 144.873
+margin_right = 186.101
+margin_bottom = 158.873
+text = "ORC"
+
+[node name="Label2" type="Label" parent="NewScreen"]
+margin_left = 476.362
+margin_top = 109.269
+margin_right = 538.362
+margin_bottom = 123.269
+text = "WARRIOR"
+
+[node name="Label3" type="Label" parent="NewScreen"]
+margin_left = 816.445
+margin_top = 152.239
+margin_right = 870.445
+margin_bottom = 166.239
+text = "ASSASIN"
+
+[node name="Label4" type="Label" parent="NewScreen"]
+margin_left = 332.717
+margin_top = 494.778
+margin_right = 417.717
+margin_bottom = 508.778
+text = "ENTER NAME:"
+
+[node name="Label5" type="Label" parent="NewScreen"]
+margin_left = 174.339
+margin_top = 57.7037
+margin_right = 457.339
+margin_bottom = 71.7037
+text = "ENTER NAME FIRST AND THEN SELECT CLASS "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainScreen/LoadGame" to="." method="_on_LoadGame_pressed"]
+[connection signal="pressed" from="MainScreen/NewGame" to="." method="_on_NewGameshow_pressed"]
+[connection signal="pressed" from="NewScreen/Orc" to="." method="_on_Class_pressed" binds= [ "ORC" ]]
+[connection signal="pressed" from="NewScreen/Warrior" to="." method="_on_Class_pressed" binds= [ "WARRIOR" ]]
+[connection signal="pressed" from="NewScreen/Assasin" to="." method="_on_Class_pressed" binds= [ "ASSASIN" ]]
